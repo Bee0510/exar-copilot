@@ -27,14 +27,16 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorConstant().primaryColor,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.maxWidth < 600) {
-            return _buildMobileLayout();
-          } else {
-            return _buildDesktopLayout();
-          }
-        },
+      body: Container(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            if (constraints.maxHeight < 100 || constraints.maxWidth < 450) {
+              return _buildMobileLayout();
+            } else {
+              return _buildDesktopLayout();
+            }
+          },
+        ),
       ),
     );
   }

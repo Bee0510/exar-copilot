@@ -24,15 +24,18 @@ class _patient_listState extends State<patient_list> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      height: MediaQuery.of(context).size.height * 0.66,
-      child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: patients.length,
-        itemBuilder: (BuildContext context, int index) {
-          return _buildPatientListItem(patients[index], index);
-        },
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        height: MediaQuery.of(context).size.height * 0.65,
+        child: ListView.builder(
+          physics: ScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          itemCount: patients.length,
+          itemBuilder: (BuildContext context, int index) {
+            return _buildPatientListItem(patients[index], index);
+          },
+        ),
       ),
     );
   }

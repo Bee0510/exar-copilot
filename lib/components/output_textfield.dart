@@ -9,35 +9,40 @@ class output_textfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.w800,
-            fontFamily: 'Poppins',
-          ),
-        ),
-        SizedBox(height: 30),
-        Container(
-          height: 300,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          child: TextField(
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(10.0),
-              border: InputBorder.none,
+    return LayoutBuilder(builder: (context, constraints) {
+      final height = constraints.maxHeight;
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text,
+            // constraints.maxWidth.toString(),
+            style: TextStyle(
+              fontSize: height > 700 ? 32 : 20,
+              fontWeight: FontWeight.w900,
+              fontFamily: 'Poppins',
             ),
-            maxLines: null,
-            keyboardType: TextInputType.multiline,
           ),
-        ),
-      ],
-    );
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+          Container(
+            height: height > 700
+                ? MediaQuery.of(context).size.height * 0.30
+                : MediaQuery.of(context).size.height * 0.32,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(10.0),
+                border: InputBorder.none,
+              ),
+              maxLines: null,
+              keyboardType: TextInputType.multiline,
+            ),
+          ),
+        ],
+      );
+    });
   }
 }
