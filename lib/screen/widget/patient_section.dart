@@ -1,14 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sized_box_for_whitespace
 import 'package:exar_co/components/custom_button.dart';
 import 'package:exar_co/components/patient_list.dart';
-import 'package:exar_co/components/search_bar.dart';
 import 'package:exar_co/constants/color.dart';
 import 'package:flutter/material.dart';
 
-class patient_section extends StatelessWidget {
-  const patient_section({
-    super.key,
-  });
+class PatientSection extends StatelessWidget {
+  const PatientSection({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +20,12 @@ class patient_section extends StatelessWidget {
           color: colorConstant().whiteColor,
           borderRadius: BorderRadius.circular(24.0),
         ),
-        padding: EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(4.0),
         child: Center(
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 height: MediaQuery.of(context).size.height * 0.86,
                 width: MediaQuery.of(context).size.width * 0.2,
                 decoration: BoxDecoration(
@@ -34,42 +33,44 @@ class patient_section extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Center(
-                    child: Column(
-                  children: [
-                    CustomButton(
-                      height: MediaQuery.of(context).size.height * 0.08,
-                      width: MediaQuery.of(context).size.width * 0.15,
-                      onPressed: () {
-                        print('onPresseed');
-                      },
-                      widget: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: colorConstant().secondaryColor,
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          Text('Add Patient',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: colorConstant().secondaryColor,
-                                  fontWeight: FontWeight.w400)),
-                        ],
+                  child: Column(
+                    children: [
+                      CustomButton(
+                        height: MediaQuery.of(context).size.height * 0.08,
+                        width: MediaQuery.of(context).size.width * 0.15,
+                        onPressed: () {
+                          print('onPresseed');
+                        },
+                        widget: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            // Removed 'const' from here
+                            Icon(
+                              Icons.add,
+                              color: colorConstant().secondaryColor,
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Text('Add Patient',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: colorConstant().secondaryColor,
+                                    fontWeight: FontWeight.w400)),
+                          ],
+                        ),
+                        green: false,
                       ),
-                      green: false,
-                    ),
-                    SizedBox(height: 30),
-                    search_bar(),
-                    SizedBox(height: 10),
-                    patient_list(),
-                  ],
-                )),
+                      SizedBox(height: 30),
+                      const SearchBar(),
+                      SizedBox(height: 10),
+                      const PatientList(),
+                    ],
+                  ),
+                ),
               ),
-              SizedBox(height: 3),
-              doctor_details()
+              const SizedBox(height: 3),
+              const DoctorDetails(),
             ],
           ),
         ),
@@ -78,20 +79,20 @@ class patient_section extends StatelessWidget {
   }
 }
 
-class doctor_details extends StatelessWidget {
-  const doctor_details({
-    super.key,
-  });
+class DoctorDetails extends StatelessWidget {
+  const DoctorDetails({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-          padding: EdgeInsets.all(4.0),
-          width: MediaQuery.of(context).size.width * 0.2,
-          height: 100,
-          child: Center(
-              child: Row(
+        padding: const EdgeInsets.all(4.0),
+        width: MediaQuery.of(context).size.width * 0.2,
+        height: 100,
+        child: Center(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -116,7 +117,7 @@ class doctor_details extends StatelessWidget {
 
                     //doctor's name and email
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -139,14 +140,14 @@ class doctor_details extends StatelessWidget {
                   ],
                 ),
               ),
-
-              //more icon
               Icon(
                 Icons.keyboard_arrow_down_sharp,
                 color: colorConstant().blackColor,
               )
             ],
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

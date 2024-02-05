@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 import 'widget/patient_section.dart';
 import 'widget/record_section.dart';
 
-class transcript_screen extends StatefulWidget {
-  const transcript_screen({super.key});
+class TranscriptScreen extends StatelessWidget {
+  const TranscriptScreen({super.key});
 
-  @override
-  State<transcript_screen> createState() => _transcript_screenState();
-}
-
-class _transcript_screenState extends State<transcript_screen> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -20,9 +15,9 @@ class _transcript_screenState extends State<transcript_screen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             //patient Section
-            patient_section(),
+            const PatientSection(),
             //transcript section
-            record_section()
+            const RecordSection()
           ],
         ),
       ),

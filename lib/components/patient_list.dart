@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../model/patient.dart';
 
-class patient_list extends StatefulWidget {
-  const patient_list({super.key});
+class PatientList extends StatefulWidget {
+  const PatientList({Key? key}) : super(key: key);
 
   @override
-  State<patient_list> createState() => _patient_listState();
+  State<PatientList> createState() => _PatientListState();
 }
 
-class _patient_listState extends State<patient_list> {
+class _PatientListState extends State<PatientList> {
   List<Patient> patients = [
     Patient(name: 'Kenyan Fransisko', gender: 'Male', age: 25),
     Patient(name: 'Albert Hussain', gender: 'Male', age: 30),
@@ -26,10 +26,10 @@ class _patient_listState extends State<patient_list> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         height: MediaQuery.of(context).size.height * 0.65,
         child: ListView.builder(
-          physics: ScrollPhysics(),
+          physics: const ScrollPhysics(),
           scrollDirection: Axis.vertical,
           itemCount: patients.length,
           itemBuilder: (BuildContext context, int index) {

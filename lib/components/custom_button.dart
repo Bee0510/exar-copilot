@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
           ),
           color: green ? colorConstant().secondaryColor : Colors.transparent,
         ),
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Center(child: widget),
       ),
     );

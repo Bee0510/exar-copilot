@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-class search_bar extends StatelessWidget {
+class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       width: 360,
       height: 50,
       decoration: BoxDecoration(
@@ -17,7 +17,7 @@ class search_bar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Icon(Icons.search, color: Colors.grey),
           ),
           Expanded(

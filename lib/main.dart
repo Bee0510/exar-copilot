@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:exar_co/constants/color.dart';
 import 'package:exar_co/screen/transcript_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,17 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Responsive App',
+      title: 'EXAR COPILOT',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +51,6 @@ class MyHomePage extends StatelessWidget {
   }
 
   Widget _buildDesktopLayout() {
-    return transcript_screen();
+    return const TranscriptScreen();
   }
 }

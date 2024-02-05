@@ -5,8 +5,8 @@ import 'package:exar_co/components/output_textfield.dart';
 import 'package:exar_co/constants/color.dart';
 import 'package:flutter/material.dart';
 
-class record_section extends StatelessWidget {
-  const record_section({Key? key}) : super(key: key);
+class RecordSection extends StatelessWidget {
+  const RecordSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class record_section extends StatelessWidget {
             child: Column(
               children: [
                 Logo(),
-                output_textfield(text: 'Audio Transcription'),
+                OutputTextField(text: 'Audio Transcription'),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                output_textfield(text: 'Doctor\'s Note'),
+                OutputTextField(text: 'Doctor\'s Note'),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -120,6 +120,8 @@ class record_section extends StatelessWidget {
 }
 
 class Logo extends StatelessWidget {
+  const Logo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
